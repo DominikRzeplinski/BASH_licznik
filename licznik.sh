@@ -70,18 +70,19 @@ policz_pliki()
 {
 if [ "$typ" = "" ]; then 
 	while read i; do 
-		echo "$i"
+		#echo "$i"
 		if [ "$i" != "" ]; then 
 			((liczbaPlikow++))
 		fi
-	done <<<$(find . -maxdepth 1 -name "*" -type f )
+	done <<<$(find . -maxdepth 1 -name "*")
+	((liczbaPlikow--))
 else
 	while read i; do 
-		echo "$i"
+		#echo "$i"
 		if [ "$i" != "" ]; then 
 			((liczbaPlikow++))
 		fi
-	done <<<$(find . -maxdepth 1 -name "*.$typ" -type f )
+	done <<<$(find . -maxdepth 1 -name "*.$typ")
 fi
 }
 
@@ -94,14 +95,15 @@ if [ "$typ" = "" ]; then
 		if [ "$i" != "" ]; then 
 			((liczbaPlikow++))
 		fi
-	done <<<$(find . -name "*" -type f)
+	done <<<$(find . -name "*")
+	((liczbaPlikow--))
 else
 	while read i; do 
 		#echo "$i"
 		if [ "$i" != "" ]; then 
 			((liczbaPlikow++))
 		fi
-	done <<<$(find . -name "*.$typ" -type f)
+	done <<<$(find . -name "*.$typ")
 fi
 }
 
